@@ -2,7 +2,7 @@
 
 Added functionality to generate a pseudo-random password based on user input.
 
-![Password Generator Screenshot](assets\images\random_pw_generator_screenshot.png)
+![Password Generator Screenshot](./assets/images/random_pw_generator_screenshot.png/?raw=true)
 
 ## Purpose
 
