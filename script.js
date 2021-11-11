@@ -1,28 +1,40 @@
 //Create a variable that will contain all characters requested by user
 var characterSet = function() {
   var character = "";
-  var confirmAlpha = window.confirm("Include letters in your password?");
-  var confirmNum = window.confirm("Include numbers in your password?");
-  var confirmSym = window.confirm("Include symbols in your password?");
+  var confirmLower = window.confirm("Include lower case letters in your password?");
+  var confirmUpper = window.confirm("Include UPPER CASE letters in your password?");
+  var confirmNum = window.confirm("Include numb3rs in your password?");
+  var confirmSym = window.confirm("Include $ymbols in your password?");
   
-  if(confirmAlpha) {
-    var alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  if(confirmLower) {
+    var alphaLow = "abcdefghijklmnopqrstuvwxyz";
   } else {
-    var alpha = "";
+    var alphaLow = "";
+  };
+  
+  if(confirmUpper) {
+    var alphaUp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  } else {
+    var alphaUp = "";
   };
   
   if(confirmNum) {
-    var numCon = "0123456789";
+    var numYes = "0123456789";
   } else {
-    var numCon = "";
+    var numYes = "";
   };
   
   if(confirmSym) {
-    var symbols = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+    var symbYes = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
   } else {
-    var symbols = ""
+    var symbYes = ""
+  }
+  
+  if(!confirmLower && !confirmUpper && !confirmNum && !confirmSym) {
+    alert("You must select at least one option");
+    return characterSet();
   };
-  character = (alpha + numCon + symbols)
+  character = (alphaLow + alphaUp + numYes + symbYes)
   return character;
 }
 //create variable for password length between 8 and 128 characters in lenght
@@ -67,7 +79,6 @@ var characterLength = function () {
         password += character.charAt(Math.floor(Math.random() * charLength));
       }
       return password;
-      console.log(password);
     }
     else {
       window.alert("A password will not be created.")
